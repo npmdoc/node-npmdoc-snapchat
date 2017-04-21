@@ -1,0 +1,1969 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >snapchat (v2.0.2)</a>
+</h1>
+<h4>Nodejs client for the unofficial Snapchat API</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat">module snapchat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils">
+            function <span class="apidocSignatureSpan">snapchat.</span>buffer_utils
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.conversation">
+            function <span class="apidocSignatureSpan">snapchat.</span>conversation
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends">
+            function <span class="apidocSignatureSpan">snapchat.</span>friends
+            <span class="apidocSignatureSpan">(client, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.</span>constants</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.</span>conversation.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.</span>friends.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.buffer_utils">module snapchat.buffer_utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.buffer_utils">
+            function <span class="apidocSignatureSpan">snapchat.</span>buffer_utils
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.AES128DecryptedData">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>AES128DecryptedData
+            <span class="apidocSignatureSpan">(data, key, iv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils._getHeader">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>_getHeader
+            <span class="apidocSignatureSpan">(data, index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.assertBuffer">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>assertBuffer
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.boundaryForBuffer">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>boundaryForBuffer
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.boundaryForString">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>boundaryForString
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.decryptStory">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>decryptStory
+            <span class="apidocSignatureSpan">(data, key, iv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.getFileExtension">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>getFileExtension
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.hashSC">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>hashSC
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isCompressed">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isCompressed
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isImage">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isImage
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isJPEG">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isJPEG
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isMPEG4">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isMPEG4
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isMedia">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isMedia
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.isPNG">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isPNG
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.sha256HashToBase64">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>sha256HashToBase64
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.buffer_utils.sha256HashToHex">
+            function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>sha256HashToHex
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.constants">module snapchat.constants</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.addSourceFromString">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>addSourceFromString
+            <span class="apidocSignatureSpan">(addSource)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.mediaKindIsImage">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>mediaKindIsImage
+            <span class="apidocSignatureSpan">(mediaKind)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.mediaKindIsVideo">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>mediaKindIsVideo
+            <span class="apidocSignatureSpan">(mediaKind)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.messageKindFromString">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>messageKindFromString
+            <span class="apidocSignatureSpan">(messageKind)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.stringFromAddSource">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromAddSource
+            <span class="apidocSignatureSpan">(addSource)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.stringFromMediaKind">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromMediaKind
+            <span class="apidocSignatureSpan">(mediaKind)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.constants.stringFromStoryPrivacy">
+            function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromStoryPrivacy
+            <span class="apidocSignatureSpan">(storyPrivacy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>AddSource</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>FriendStatus</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>MediaKind</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>MessageKind</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>SnapPrivacy</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>SnapStatus</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>StoryPrivacy</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>attestation</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>core</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>endpoints</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>featureSettings</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>headers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">snapchat.constants.</span>screen</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.conversation">module snapchat.conversation</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.conversation.conversation">
+            function <span class="apidocSignatureSpan">snapchat.</span>conversation
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.conversation.prototype">module snapchat.conversation.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.conversation.prototype.addMessagesFromConversation">
+            function <span class="apidocSignatureSpan">snapchat.conversation.prototype.</span>addMessagesFromConversation
+            <span class="apidocSignatureSpan">(convo)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.friends">module snapchat.friends</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.friends">
+            function <span class="apidocSignatureSpan">snapchat.</span>friends
+            <span class="apidocSignatureSpan">(client, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.snapchat.friends.prototype">module snapchat.friends.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype._addFriendsToSession">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_addFriendsToSession
+            <span class="apidocSignatureSpan">(friends)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype._removeFriendsFromSession">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_removeFriendsFromSession
+            <span class="apidocSignatureSpan">(friends)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype._setUserBlocked">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_setUserBlocked
+            <span class="apidocSignatureSpan">(username, blocked, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.addFriend">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriend
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.addFriendBack">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriendBack
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.addFriends">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriends
+            <span class="apidocSignatureSpan">(toAdd, toUnfriend, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.blockUser">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>blockUser
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.findFriends">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>findFriends
+            <span class="apidocSignatureSpan">(friends, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.findFriendsNear">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>findFriendsNear
+            <span class="apidocSignatureSpan">(location, accuracy, milliseconds, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.searchFriend">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>searchFriend
+            <span class="apidocSignatureSpan">(query, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.seenSuggestedFriends">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>seenSuggestedFriends
+            <span class="apidocSignatureSpan">(usernames, seen, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.unblockUser">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>unblockUser
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.unfriend">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>unfriend
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.updateDisplayNameForUser">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>updateDisplayNameForUser
+            <span class="apidocSignatureSpan">(friend, displayName, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.snapchat.friends.prototype.userExists">
+            function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>userExists
+            <span class="apidocSignatureSpan">(username, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat" id="apidoc.module.snapchat">module snapchat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils" id="apidoc.element.snapchat.buffer_utils">
+        function <span class="apidocSignatureSpan">snapchat.</span>buffer_utils
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BufferUtils() {
+  // static class
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.conversation" id="apidoc.element.snapchat.conversation">
+        function <span class="apidocSignatureSpan">snapchat.</span>conversation
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Conversation(params) {
+  var self = this
+  if (!(self instanceof Conversation)) return new Conversation(params)
+
+  var convoMessages = params[&#x27;conversation_messages&#x27;] || { }
+  var lastChatActions = params[&#x27;last_chat_actions&#x27;]
+  var lastTransaction = params[&#x27;last_cash_transaction&#x27;]
+  var pendingRecievedSnaps = params[&#x27;pending_received_snaps&#x27;] || []
+  var messages = convoMessages[&#x27;messages&#x27;] || []
+  var lastSnap = params[&#x27;last_snap&#x27;]
+  var lastInteraction = +params[&#x27;last_interaction_ts&#x27;]
+
+  self.messagingAuth = convoMessages[&#x27;messaging_auth&#x27;]
+
+  self.state = params[&#x27;conversation_state&#x27;]
+  self.identifier = params[&#x27;id&#x27;]
+  self.pagination = params[&#x27;iter_token&#x27;]
+
+  self.lastSnap = lastSnap ? new Snap(lastSnap) : null
+  self.lastTransaction = lastTransaction ? new Transaction(lastTransaction) : null
+  self.lastInteraction = lastInteraction &#x3e; 0 ? new Date(lastInteraction) : null
+  if (lastChatActions) {
+    // self.lastChatType = SKChatTypeFromString(lastChatActions[&#x27;last_write_type&#x27;])
+    // self.lastChatRead = +NSDate dateWithTimeIntervalSince1970:[lastChatActions[&#x27;last_read_timestamp&#x27;]/1000]
+    // self.lastChatWrite = +NSDate dateWithTimeIntervalSince1970:[lastChatActions[&#x27;last_write_timestamp&#x27;]/1000]
+    self.lastChatReader = lastChatActions[&#x27;last_reader&#x27;]
+    self.lastChatWriter = lastChatActions[&#x27;last_writer&#x27;]
+  }
+
+  self.participants = params[&#x27;participants&#x27;] || self.identifier.split(&#x27;~&#x27;)
+  self.usersWithPendingChats = params[&#x27;pending_chats_for&#x27;] || []
+
+  // Messages
+  self.messages = messages.map(function (message) {
+    if (message[&#x27;snap&#x27;]) {
+      return new Snap(message[&#x27;snap&#x27;])
+    } else if (message[&#x27;chat_message&#x27;]) {
+      return new Message(message[&#x27;chat_message&#x27;])
+    } else if (message[&#x27;cash_transaction&#x27;]) {
+      return new CashTransaction(message[&#x27;chat_transaction&#x27;])
+    } else {
+      debug(&#x27;Unhandled conversation message type:%s&#x27;, message)
+      return null
+    }
+  })
+
+  // Pending recieved snaps
+  self.pendingRecievedSnaps = pendingRecievedSnaps.map(function (snap) {
+    return new Snap(snap)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends" id="apidoc.element.snapchat.friends">
+        function <span class="apidocSignatureSpan">snapchat.</span>friends
+        <span class="apidocSignatureSpan">(client, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Friends(client, opts) {
+  var self = this
+  if (!(self instanceof Friends)) return new Friends(client, opts)
+  if (!opts) opts = {}
+
+  self.client = client
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.buffer_utils" id="apidoc.module.snapchat.buffer_utils">module snapchat.buffer_utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.buffer_utils" id="apidoc.element.snapchat.buffer_utils.buffer_utils">
+        function <span class="apidocSignatureSpan">snapchat.</span>buffer_utils
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BufferUtils() {
+  // static class
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.AES128DecryptedData" id="apidoc.element.snapchat.buffer_utils.AES128DecryptedData">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>AES128DecryptedData
+        <span class="apidocSignatureSpan">(data, key, iv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AES128DecryptedData = function (data, key, iv) {
+  var keyLength = (key.length &#x3e;= 32 ? 32 : 16)
+  var algorithm = (keyLength === 32 ? &#x27;aes-256-cbc&#x27; : &#x27;aes-128-cbc&#x27;)
+  var decipher = crypto.createDecipheriv(algorithm, key.slice(0, keyLength), iv.slice(0, 16))
+
+  return Buffer.concat([
+    decipher.update(data),
+    decipher.final()
+  ])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+BufferUtils.decryptStory = function (data, key, iv) {
+ if (!data || !key || !iv) throw new Error(&#x27;BufferUtils.decryptStory invalid params&#x27;)
+
+ var keyBuffer = new Buffer(key, &#x27;base64&#x27;)
+ var ivBuffer = new Buffer(iv, &#x27;base64&#x27;)
+
+ return BufferUtils.<span class="apidocCodeKeywordSpan">AES128DecryptedData</span>(data, keyBuffer, ivBuffer)
+}
+
+/**
+* Decrypts Buffer data for stories.
+*
+* @param {Buffer} data
+* @param {Buffer} key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils._getHeader" id="apidoc.element.snapchat.buffer_utils._getHeader">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>_getHeader
+        <span class="apidocSignatureSpan">(data, index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getHeader = function (data, index) {
+  index = index || 0
+
+  if (!data || data.length &#x3c; index + 4) {
+    return null
+  } else {
+    return {
+      a: data.readUInt8(index + 0),
+      b: data.readUInt8(index + 1),
+      c: data.readUInt8(index + 2),
+      d: data.readUInt8(index + 3)
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+* @param {Buffer} data
+* @return {boolean}
+*/
+BufferUtils.isJPEG = function (data) {
+ var h = BufferUtils.<span class="apidocCodeKeywordSpan">_getHeader</span>(data)
+
+ return h &#x26;&#x26; h.a === 0xFF &#x26;&#x26; h.b === 0xD8 &#x26;&#x26; h.c === 0xFF
+}
+
+/**
+* @param {Buffer} data
+* @return {boolean}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.assertBuffer" id="apidoc.element.snapchat.buffer_utils.assertBuffer">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>assertBuffer
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertBuffer = function (data) {
+  if (!Buffer.isBuffer(data)) {
+    throw new Error(&#x27;invalid Buffer&#x27;, data)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Generates a HTTP multipart/form-data boundary for the given key key,value pair.
+ *
+ * @param {string} key
+ * @param {Buffer} value
+ * @return {Buffer}
+ */
+BufferUtils.boundaryForBuffer = function (key, value) {
+BufferUtils.<span class="apidocCodeKeywordSpan">assertBuffer</span>(value)
+
+return Buffer.concat([
+  new Buffer(&#x27;\r\n--&#x27; + constants.core.boundary + &#x27;\r\n&#x27;),
+  new Buffer(&#x27;Content-Disposition: form-data; name=&#x22;&#x27; + key + &#x27;&#x22;; filename=&#x22;&#x27; + key + &#x27;&#
+x22;\r\n&#x27;),
+  new Buffer(&#x27;Content-Type: application/octet-stream\r\n\r\n&#x27;),
+  value
+])
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.boundaryForBuffer" id="apidoc.element.snapchat.buffer_utils.boundaryForBuffer">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>boundaryForBuffer
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">boundaryForBuffer = function (key, value) {
+  BufferUtils.assertBuffer(value)
+
+  return Buffer.concat([
+    new Buffer(&#x27;\r\n--&#x27; + constants.core.boundary + &#x27;\r\n&#x27;),
+    new Buffer(&#x27;Content-Disposition: form-data; name=&#x22;&#x27; + key + &#x27;&#x22;; filename=&#x22;&#x27; + key + &#x27;&#x22;\r\n&#x27;),
+    new Buffer(&#x27;Content-Type: application/octet-stream\r\n\r\n&#x27;),
+    value
+  ])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.boundaryForString" id="apidoc.element.snapchat.buffer_utils.boundaryForString">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>boundaryForString
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">boundaryForString = function (key, value) {
+  return Buffer.concat([
+    new Buffer(&#x27;\r\n--&#x27; + constants.core.boundary + &#x27;\r\n&#x27;),
+    new Buffer(&#x27;Content-Disposition: form-data; name=&#x22;&#x27; + key + &#x27;&#x22;\r\n\r\n&#x27;),
+    new Buffer(&#x27;&#x27; + value)
+  ])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.decryptStory" id="apidoc.element.snapchat.buffer_utils.decryptStory">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>decryptStory
+        <span class="apidocSignatureSpan">(data, key, iv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decryptStory = function (data, key, iv) {
+  if (!data || !key || !iv) throw new Error(&#x27;BufferUtils.decryptStory invalid params&#x27;)
+
+  var keyBuffer = new Buffer(key, &#x27;base64&#x27;)
+  var ivBuffer = new Buffer(iv, &#x27;base64&#x27;)
+
+  return BufferUtils.AES128DecryptedData(data, keyBuffer, ivBuffer)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.getFileExtension" id="apidoc.element.snapchat.buffer_utils.getFileExtension">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>getFileExtension
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFileExtension = function (data) {
+  if (BufferUtils.isJPEG(data)) return &#x27;.jpg&#x27;
+  if (BufferUtils.isPNG(data)) return &#x27;.png&#x27;
+  if (BufferUtils.isMPEG4(data)) return &#x27;.mp4&#x27;
+  if (BufferUtils.isCompressed(data)) return &#x27;.zip&#x27;
+  return &#x27;.dat&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.hashSC" id="apidoc.element.snapchat.buffer_utils.hashSC">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>hashSC
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hashSC = function (a, b) {
+  var secret = new Buffer(constants.core.secret)
+
+  var firstData = Buffer.concat([ secret, a ])
+  var secondData = Buffer.concat([ b, secret ])
+
+  var first = BufferUtils.sha256HashToHex(firstData)
+  var second = BufferUtils.sha256HashToHex(secondData)
+
+  var pattern = constants.core.hashPattern
+  var hash = &#x27;&#x27;
+
+  for (var i = 0; i &#x3c; pattern.length; ++i) {
+    if (pattern.charAt(i) === &#x27;0&#x27;) {
+      hash += first.charAt(i)
+    } else {
+      hash += second.charAt(i)
+    }
+  }
+
+  return hash
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isCompressed" id="apidoc.element.snapchat.buffer_utils.isCompressed">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isCompressed
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isCompressed = function (data) {
+  var h = BufferUtils._getHeader(data)
+
+  // check for presence of a PK header
+  return h &#x26;&#x26; h.a === 0x50 &#x26;&#x26; h.b === 0x4B
+  // &#x26;&#x26; h.c === 0x03 &#x26;&#x26; h.d === 0x04
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {Buffer} data
+* @return {string}
+*/
+BufferUtils.getFileExtension = function (data) {
+ if (BufferUtils.isJPEG(data)) return &#x27;.jpg&#x27;
+ if (BufferUtils.isPNG(data)) return &#x27;.png&#x27;
+ if (BufferUtils.isMPEG4(data)) return &#x27;.mp4&#x27;
+ if (BufferUtils.<span class="apidocCodeKeywordSpan">isCompressed</span>(data)) return &#x27;.zip&#x27;
+ return &#x27;.dat&#x27;
+}
+
+/**
+* @param {Buffer} data
+* @return {string}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isImage" id="apidoc.element.snapchat.buffer_utils.isImage">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isImage
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isImage = function (data) {
+  return BufferUtils.isJPEG(data) || BufferUtils.isPNG(data)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isMedia = function (data) {
+  return BufferUtils.<span class="apidocCodeKeywordSpan">isImage</span>(data) || BufferUtils.isMPEG4(data)
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isCompressed = function (data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isJPEG" id="apidoc.element.snapchat.buffer_utils.isJPEG">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isJPEG
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isJPEG = function (data) {
+  var h = BufferUtils._getHeader(data)
+
+  return h &#x26;&#x26; h.a === 0xFF &#x26;&#x26; h.b === 0xD8 &#x26;&#x26; h.c === 0xFF
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isImage = function (data) {
+  return BufferUtils.<span class="apidocCodeKeywordSpan">isJPEG</span>(data) || BufferUtils.isPNG(data)
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isMPEG4 = function (data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isMPEG4" id="apidoc.element.snapchat.buffer_utils.isMPEG4">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isMPEG4
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isMPEG4 = function (data) {
+  var h = BufferUtils._getHeader(data, 4)
+
+  // return h &#x26;&#x26; h.a === 0x00 &#x26;&#x26; h.b === 0x00 &#x26;&#x26; h.c === 0x00
+  return h &#x26;&#x26; h.a === 0x66 &#x26;&#x26; h.b === 0x74 &#x26;&#x26; h.c === 0x79 &#x26;&#x26; h.d === 0x70
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isMedia = function (data) {
+  return BufferUtils.isImage(data) || BufferUtils.<span class="apidocCodeKeywordSpan">isMPEG4</span>(data)
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isCompressed = function (data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isMedia" id="apidoc.element.snapchat.buffer_utils.isMedia">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isMedia
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isMedia = function (data) {
+  return BufferUtils.isImage(data) || BufferUtils.isMPEG4(data)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.isPNG" id="apidoc.element.snapchat.buffer_utils.isPNG">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>isPNG
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPNG = function (data) {
+  var h = BufferUtils._getHeader(data)
+
+  return h &#x26;&#x26; h.a === 0x89 &#x26;&#x26; h.b === 0x50 &#x26;&#x26; h.c === 0x4E &#x26;&#x26; h.d === 0x47
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isImage = function (data) {
+  return BufferUtils.isJPEG(data) || BufferUtils.<span class="apidocCodeKeywordSpan">isPNG</span>(data)
+}
+
+/**
+ * @param {Buffer} data
+ * @return {boolean}
+ */
+BufferUtils.isMPEG4 = function (data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.sha256HashToBase64" id="apidoc.element.snapchat.buffer_utils.sha256HashToBase64">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>sha256HashToBase64
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sha256HashToBase64 = function (data) {
+  return crypto.createHash(&#x27;sha256&#x27;).update(data).digest(&#x27;base64&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Attestation, courtesy of casper.io
+ * @private
+ */
+Snapchat.prototype._getAttestation = function (username, password, ts, cb) {
+var preHash = StringUtils.getSCPreHashString(username, password, ts, constants.endpoints.account.login)
+var nonce = StringUtils.<span class="apidocCodeKeywordSpan">sha256HashToBase64</span>(preHash)
+
+var params = {
+  &#x27;nonce&#x27;: nonce,
+  &#x27;authentication&#x27;: constants.attestation.auth,
+  &#x27;apk_digest&#x27;: constants.attestation.digest(),
+  &#x27;timestamp&#x27;: ts
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.buffer_utils.sha256HashToHex" id="apidoc.element.snapchat.buffer_utils.sha256HashToHex">
+        function <span class="apidocSignatureSpan">snapchat.buffer_utils.</span>sha256HashToHex
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sha256HashToHex = function (data) {
+  return crypto.createHash(&#x27;sha256&#x27;).update(data).digest(&#x27;hex&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+BufferUtils.hashSC = function (a, b) {
+var secret = new Buffer(constants.core.secret)
+
+var firstData = Buffer.concat([ secret, a ])
+var secondData = Buffer.concat([ b, secret ])
+
+var first = BufferUtils.<span class="apidocCodeKeywordSpan">sha256HashToHex</span>(firstData)
+var second = BufferUtils.sha256HashToHex(secondData)
+
+var pattern = constants.core.hashPattern
+var hash = &#x27;&#x27;
+
+for (var i = 0; i &#x3c; pattern.length; ++i) {
+  if (pattern.charAt(i) === &#x27;0&#x27;) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.constants" id="apidoc.module.snapchat.constants">module snapchat.constants</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.addSourceFromString" id="apidoc.element.snapchat.constants.addSourceFromString">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>addSourceFromString
+        <span class="apidocSignatureSpan">(addSource)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addSourceFromString = function (addSource) {
+  if (addSource === &#x27;ADDED_BY_PHONE&#x27;) {
+    return constants.AddSource.Phonebook.value
+  } else if (addSource === &#x27;ADDED_BY_USERNAME&#x27;) {
+    return constants.AddSource.Username.value
+  } else if (addSource === &#x27;ADDED_BY_ADDED_ME_BACK&#x27;) {
+    return constants.AddSource.AddedBack.value
+  }
+
+  return 0
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.mediaKindIsImage" id="apidoc.element.snapchat.constants.mediaKindIsImage">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>mediaKindIsImage
+        <span class="apidocSignatureSpan">(mediaKind)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mediaKindIsImage = function (mediaKind) {
+  return mediaKind === constants.MediaKind.Image.value ||
+         mediaKind === constants.MediaKind.StrangerImage.value
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.mediaKindIsVideo" id="apidoc.element.snapchat.constants.mediaKindIsVideo">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>mediaKindIsVideo
+        <span class="apidocSignatureSpan">(mediaKind)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mediaKindIsVideo = function (mediaKind) {
+  return mediaKind === constants.MediaKind.Video.value ||
+         mediaKind === constants.MediaKind.SilentVideo.value ||
+         mediaKind === constants.MediaKind.StrangerVideo.value ||
+         mediaKind === constants.MediaKind.StrangerSilentVideo.value
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.messageKindFromString" id="apidoc.element.snapchat.constants.messageKindFromString">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>messageKindFromString
+        <span class="apidocSignatureSpan">(messageKind)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">messageKindFromString = function (messageKind) {
+  messageKind = (messageKind || &#x27;&#x27;).toLowerCase()
+
+  if (messageKind === constants.MessageKind.Text.key.toLowerCase()) {
+    return constants.MessageKind.Text.value
+  } else if (messageKind === constants.MessageKind.Media.key.toLowerCase()) {
+    return constants.MessageKind.Media.value
+  } else if (messageKind === constants.MessageKind.DiscoverShared.key.toLowerCase()) {
+    return constants.MessageKind.DiscoverShared.value
+  }
+
+  return null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var body = message[&#x27;body&#x27;] || { }
+var media = body[&#x27;media&#x27;]
+var type = body[&#x27;type&#x27;]
+
+self.identifier = message[&#x27;id&#x27;]
+self.messageIdentifier = message[&#x27;chat_message_id&#x27;]
+self.pagination = params[&#x27;iter_token&#x27;]
+self.messageKind = constants.<span class="apidocCodeKeywordSpan">messageKindFromString</span>(type)
+self.created = new Date(+message[&#x27;timestamp&#x27;])
+
+if (self.messageKind === null) {
+  debug(&#x27;invalid MessageKind (%s %j)&#x27;, type, params)
+} else if (self.messageKind === constants.MessageKind.Text.value) {
+  self.text = body[&#x27;text&#x27;]
+} else if (media) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.stringFromAddSource" id="apidoc.element.snapchat.constants.stringFromAddSource">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromAddSource
+        <span class="apidocSignatureSpan">(addSource)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringFromAddSource = function (addSource) {
+  if (addSource === constants.AddSource.Phonebook.value) {
+    return &#x27;ADDED_BY_PHONE&#x27;
+  } else if (addSource === constants.AddSource.Username.value) {
+    return &#x27;ADDED_BY_USERNAME&#x27;
+  } else if (addSource === constants.AddSource.AddedBack.value) {
+    return &#x27;ADDED_BY_ADDED_ME_BACK&#x27;
+  }
+
+  return null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.stringFromMediaKind" id="apidoc.element.snapchat.constants.stringFromMediaKind">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromMediaKind
+        <span class="apidocSignatureSpan">(mediaKind)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringFromMediaKind = function (mediaKind) {
+  return constants.MediaKind.get(mediaKind).key
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.constants.stringFromStoryPrivacy" id="apidoc.element.snapchat.constants.stringFromStoryPrivacy">
+        function <span class="apidocSignatureSpan">snapchat.constants.</span>stringFromStoryPrivacy
+        <span class="apidocSignatureSpan">(storyPrivacy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringFromStoryPrivacy = function (storyPrivacy) {
+  if (storyPrivacy === constants.StoryPrivacy.Everyone.value) {
+    return &#x27;EVERYONE&#x27;
+  } else if (storyPrivacy === constants.StoryPrivacy.Friends.value) {
+    return &#x27;FRIENDS&#x27;
+  } else if (storyPrivacy === constants.StoryPrivacy.Custom.value) {
+    return &#x27;CUSTOM&#x27;
+  }
+
+  return null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.conversation" id="apidoc.module.snapchat.conversation">module snapchat.conversation</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.conversation.conversation" id="apidoc.element.snapchat.conversation.conversation">
+        function <span class="apidocSignatureSpan">snapchat.</span>conversation
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Conversation(params) {
+  var self = this
+  if (!(self instanceof Conversation)) return new Conversation(params)
+
+  var convoMessages = params[&#x27;conversation_messages&#x27;] || { }
+  var lastChatActions = params[&#x27;last_chat_actions&#x27;]
+  var lastTransaction = params[&#x27;last_cash_transaction&#x27;]
+  var pendingRecievedSnaps = params[&#x27;pending_received_snaps&#x27;] || []
+  var messages = convoMessages[&#x27;messages&#x27;] || []
+  var lastSnap = params[&#x27;last_snap&#x27;]
+  var lastInteraction = +params[&#x27;last_interaction_ts&#x27;]
+
+  self.messagingAuth = convoMessages[&#x27;messaging_auth&#x27;]
+
+  self.state = params[&#x27;conversation_state&#x27;]
+  self.identifier = params[&#x27;id&#x27;]
+  self.pagination = params[&#x27;iter_token&#x27;]
+
+  self.lastSnap = lastSnap ? new Snap(lastSnap) : null
+  self.lastTransaction = lastTransaction ? new Transaction(lastTransaction) : null
+  self.lastInteraction = lastInteraction &#x3e; 0 ? new Date(lastInteraction) : null
+  if (lastChatActions) {
+    // self.lastChatType = SKChatTypeFromString(lastChatActions[&#x27;last_write_type&#x27;])
+    // self.lastChatRead = +NSDate dateWithTimeIntervalSince1970:[lastChatActions[&#x27;last_read_timestamp&#x27;]/1000]
+    // self.lastChatWrite = +NSDate dateWithTimeIntervalSince1970:[lastChatActions[&#x27;last_write_timestamp&#x27;]/1000]
+    self.lastChatReader = lastChatActions[&#x27;last_reader&#x27;]
+    self.lastChatWriter = lastChatActions[&#x27;last_writer&#x27;]
+  }
+
+  self.participants = params[&#x27;participants&#x27;] || self.identifier.split(&#x27;~&#x27;)
+  self.usersWithPendingChats = params[&#x27;pending_chats_for&#x27;] || []
+
+  // Messages
+  self.messages = messages.map(function (message) {
+    if (message[&#x27;snap&#x27;]) {
+      return new Snap(message[&#x27;snap&#x27;])
+    } else if (message[&#x27;chat_message&#x27;]) {
+      return new Message(message[&#x27;chat_message&#x27;])
+    } else if (message[&#x27;cash_transaction&#x27;]) {
+      return new CashTransaction(message[&#x27;chat_transaction&#x27;])
+    } else {
+      debug(&#x27;Unhandled conversation message type:%s&#x27;, message)
+      return null
+    }
+  })
+
+  // Pending recieved snaps
+  self.pendingRecievedSnaps = pendingRecievedSnaps.map(function (snap) {
+    return new Snap(snap)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.conversation.prototype" id="apidoc.module.snapchat.conversation.prototype">module snapchat.conversation.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.conversation.prototype.addMessagesFromConversation" id="apidoc.element.snapchat.conversation.prototype.addMessagesFromConversation">
+        function <span class="apidocSignatureSpan">snapchat.conversation.prototype.</span>addMessagesFromConversation
+        <span class="apidocSignatureSpan">(convo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addMessagesFromConversation = function (convo) {
+  var self = this
+  if (!convo.messages.count) return
+
+  self.messages = self.messages.concat(convo.messages)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.friends" id="apidoc.module.snapchat.friends">module snapchat.friends</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.friends" id="apidoc.element.snapchat.friends.friends">
+        function <span class="apidocSignatureSpan">snapchat.</span>friends
+        <span class="apidocSignatureSpan">(client, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Friends(client, opts) {
+  var self = this
+  if (!(self instanceof Friends)) return new Friends(client, opts)
+  if (!opts) opts = {}
+
+  self.client = client
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.snapchat.friends.prototype" id="apidoc.module.snapchat.friends.prototype">module snapchat.friends.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype._addFriendsToSession" id="apidoc.element.snapchat.friends.prototype._addFriendsToSession">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_addFriendsToSession
+        <span class="apidocSignatureSpan">(friends)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addFriendsToSession = function (friends) {
+  var self = this
+  self.client.session.friends = self.client.session.friends.concat(friends)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}, function (err, result) {
+  if (err) {
+    return reject(err)
+  } else if (result &#x26;&#x26; result.object) {
+    var updated = new User(result.object)
+
+    self._removeFriendsFromSession([ updated ])
+    self.<span class="apidocCodeKeywordSpan">_addFriendsToSession</span>([ updated ])
+    return resolve(updated)
+  } else {
+    debug(&#x27;Friends.updateDisplayNameForUser parse error %j&#x27;, result)
+  }
+
+  return reject(new Error(&#x27;Friends.updateDisplayNameForUser parse error&#x27;))
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype._removeFriendsFromSession" id="apidoc.element.snapchat.friends.prototype._removeFriendsFromSession">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_removeFriendsFromSession
+        <span class="apidocSignatureSpan">(friends)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_removeFriendsFromSession = function (friends) {
+  var self = this
+  var friendsMap = { }
+
+  friends.forEach(function (friend) {
+    friendsMap[friend.username] = true
+  })
+
+  self.client.session.friends = self.client.session.friends.filter(function (friend) {
+    return !(friend.username in friendsMap)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     &#x27;friend&#x27;: username,
+     &#x27;username&#x27;: self.client.username
+   }, function (err) {
+     if (err) {
+       return reject(err)
+     }
+
+     self.<span class="apidocCodeKeywordSpan">_removeFriendsFromSession</span>([ { username: username } ])
+     return resolve()
+   })
+ }).nodeify(cb)
+}
+
+/**
+* Finds friends given phone numbers and names.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype._setUserBlocked" id="apidoc.element.snapchat.friends.prototype._setUserBlocked">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>_setUserBlocked
+        <span class="apidocSignatureSpan">(username, blocked, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_setUserBlocked = function (username, blocked, cb) {
+  var self = this
+
+  return self.client.post(constants.endpoints.friends.friend, {
+    &#x27;action&#x27;: blocked ? &#x27;block&#x27; : &#x27;unblock&#x27;,
+    &#x27;friend&#x27;: username,
+    &#x27;username&#x27;: self.client.username
+  }, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {string} username The username of the user to block.
+* @param {function} cb
+*/
+Friends.prototype.blockUser = function (username, cb) {
+ var self = this
+ debug(&#x27;Friends.blockUser (%s)&#x27;, username)
+
+ return self.<span class="apidocCodeKeywordSpan">_setUserBlocked</span>(username, true, cb)
+}
+
+/**
+* Unblocks username.
+*
+* @param {string} username The username of the user to block.
+* @param {function} cb
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.addFriend" id="apidoc.element.snapchat.friends.prototype.addFriend">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriend
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addFriend = function (username, cb) {
+  var self = this
+  debug(&#x27;Friends.addFriend (%s)&#x27;, username)
+
+  return self.client.post(constants.endpoints.friends.friend, {
+    &#x27;action&#x27;: &#x27;add&#x27;,
+    &#x27;friend&#x27;: username,
+    &#x27;username&#x27;: self.client.username,
+    &#x27;added_by&#x27;: &#x27;ADDED_BY_USERNAME&#x27;
+  }, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.addFriendBack" id="apidoc.element.snapchat.friends.prototype.addFriendBack">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriendBack
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addFriendBack = function (username, cb) {
+  var self = this
+  debug(&#x27;Friends.addFriendBack (%s)&#x27;, username)
+
+  return self.client.post(constants.endpoints.friends.friend, {
+    &#x27;action&#x27;: &#x27;add&#x27;,
+    &#x27;friend&#x27;: username,
+    &#x27;username&#x27;: self.client.username,
+    &#x27;added_by&#x27;: &#x27;ADDED_BY_ADDED_ME_BACK&#x27;
+  }, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.addFriends" id="apidoc.element.snapchat.friends.prototype.addFriends">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>addFriends
+        <span class="apidocSignatureSpan">(toAdd, toUnfriend, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addFriends = function (toAdd, toUnfriend, cb) {
+  var self = this
+  debug(&#x27;Friends.addFriends (toAdd %j, toUnfriend %j)&#x27;, toAdd, toUnfriend)
+
+  if (!toAdd) toAdd = []
+  if (!toUnfriend) toUnfriend = []
+
+  return self.client.post(constants.endpoints.friends.friend, {
+    &#x27;username&#x27;: self.client.username,
+    &#x27;action&#x27;: &#x27;multiadddelete&#x27;,
+    &#x27;friend&#x27;: {
+      friendsToAdd: JSON.stringify(toAdd),
+      friendsToDelete: JSON.stringify(toUnfriend)
+    },
+    &#x27;added_by&#x27;: &#x27;ADDED_BY_USERNAME&#x27;
+  }, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.blockUser" id="apidoc.element.snapchat.friends.prototype.blockUser">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>blockUser
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">blockUser = function (username, cb) {
+  var self = this
+  debug(&#x27;Friends.blockUser (%s)&#x27;, username)
+
+  return self._setUserBlocked(username, true, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.findFriends" id="apidoc.element.snapchat.friends.prototype.findFriends">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>findFriends
+        <span class="apidocSignatureSpan">(friends, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findFriends = function (friends, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.findFriends (%j)&#x27;, friends)
+
+    if (self.client.session.shouldTextToVerifyNumber ||
+        self.client.session.shouldCallToVerifyNumber) {
+      return reject(new Error(&#x27;Friends.findFriends error client needs to verify phone first&#x27;))
+    }
+
+    self.client.post(constants.endpoints.friends.find, {
+      &#x27;username&#x27;: self.client.username,
+      &#x27;countryCode&#x27;: self.client.session.countryCode,
+      &#x27;numbers&#x27;: JSON.stringify(friends)
+    }, function (err, result) {
+      if (err) {
+        return reject(err)
+      } else if (result &#x26;&#x26; result.results) {
+        var results = result.results.map(function (friend) {
+          return new FoundFriend(friend)
+        })
+        return resolve(results)
+      }
+
+      return reject(new Error(&#x27;Friends.findFriends parse error&#x27;))
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.findFriendsNear" id="apidoc.element.snapchat.friends.prototype.findFriendsNear">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>findFriendsNear
+        <span class="apidocSignatureSpan">(location, accuracy, milliseconds, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findFriendsNear = function (location, accuracy, milliseconds, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.findFriendsNear (%j)&#x27;, location)
+
+    if (accuracy &#x3c;= 0) accuracy = 10
+
+    self.client.post(constants.endpoints.friends.findNearby, {
+      &#x27;username&#x27;: self.client.username,
+      &#x27;accuracyMeters&#x27;: accuracy,
+      &#x27;action&#x27;: &#x27;update&#x27;,
+      &#x27;lat&#x27;: location.lat,
+      &#x27;lng&#x27;: location.lng,
+      &#x27;totalPollingDurationMillis&#x27;: milliseconds
+    }, function (err, result) {
+      if (err) {
+        return reject(err)
+      } else if (result &#x26;&#x26; result[&#x27;nearby_snapchatters&#x27;]) {
+        var results = result[&#x27;nearby_snapchatters&#x27;].map(function (user) {
+          return new NearbyUser(user[&#x27;username&#x27;], user[&#x27;user_id&#x27;])
+        })
+        return resolve(results)
+      }
+
+      return reject(new Error(&#x27;Friends.findFriendNear parse error&#x27;))
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.searchFriend" id="apidoc.element.snapchat.friends.prototype.searchFriend">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>searchFriend
+        <span class="apidocSignatureSpan">(query, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">searchFriend = function (query, cb) {
+  var self = this
+  debug(&#x27;Friends.searchFriend (%s)&#x27;, query)
+
+  return self.client.post(constants.endpoints.friends.search, {
+    &#x27;query&#x27;: query,
+    &#x27;username&#x27;: self.client.username
+  }, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.seenSuggestedFriends" id="apidoc.element.snapchat.friends.prototype.seenSuggestedFriends">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>seenSuggestedFriends
+        <span class="apidocSignatureSpan">(usernames, seen, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">seenSuggestedFriends = function (usernames, seen, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.seenSuggestedFriends (%j, %d)&#x27;, usernames, seen)
+
+    if (!usernames || !usernames.length) usernames = [ ]
+
+    self.client.post(constants.endpoints.misc.suggestFriend, {
+      &#x27;action&#x27;: &#x27;update&#x27;,
+      &#x27;seen&#x27;: !!seen,
+      &#x27;seen_suggested_friend_list&#x27;: JSON.stringify(usernames),
+      &#x27;username&#x27;: self.client.username
+    }, function (err, result) {
+      if (err) {
+        return reject(err)
+      } else if (result) {
+        return resolve(!!result.logged)
+      }
+
+      return reject(new Error(&#x27;Friends.seenSuggestedFriends parse error&#x27;))
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.unblockUser" id="apidoc.element.snapchat.friends.prototype.unblockUser">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>unblockUser
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unblockUser = function (username, cb) {
+  var self = this
+  debug(&#x27;Friends.unblockUser (%s)&#x27;, username)
+
+  return self._setUserBlocked(username, false, cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.unfriend" id="apidoc.element.snapchat.friends.prototype.unfriend">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>unfriend
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unfriend = function (username, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.unfriend (%s)&#x27;, username)
+
+    self.client.post(constants.endpoints.friends.friend, {
+      &#x27;action&#x27;: &#x27;delete&#x27;,
+      &#x27;friend&#x27;: username,
+      &#x27;username&#x27;: self.client.username
+    }, function (err) {
+      if (err) {
+        return reject(err)
+      }
+
+      self._removeFriendsFromSession([ { username: username } ])
+      return resolve()
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.updateDisplayNameForUser" id="apidoc.element.snapchat.friends.prototype.updateDisplayNameForUser">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>updateDisplayNameForUser
+        <span class="apidocSignatureSpan">(friend, displayName, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateDisplayNameForUser = function (friend, displayName, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.updateDisplayNameForUser (%s, &#x22;%s&#x22;)&#x27;, friend, displayName)
+
+    self.client.post(constants.endpoints.friends.friend, {
+      &#x27;action&#x27;: &#x27;display&#x27;,
+      &#x27;display&#x27;: displayName,
+      &#x27;friend&#x27;: friend,
+      &#x27;friend_id&#x27;: &#x27;&#x27;,
+      &#x27;username&#x27;: self.client.username
+    }, function (err, result) {
+      if (err) {
+        return reject(err)
+      } else if (result &#x26;&#x26; result.object) {
+        var updated = new User(result.object)
+
+        self._removeFriendsFromSession([ updated ])
+        self._addFriendsToSession([ updated ])
+        return resolve(updated)
+      } else {
+        debug(&#x27;Friends.updateDisplayNameForUser parse error %j&#x27;, result)
+      }
+
+      return reject(new Error(&#x27;Friends.updateDisplayNameForUser parse error&#x27;))
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.snapchat.friends.prototype.userExists" id="apidoc.element.snapchat.friends.prototype.userExists">
+        function <span class="apidocSignatureSpan">snapchat.friends.prototype.</span>userExists
+        <span class="apidocSignatureSpan">(username, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">userExists = function (username, cb) {
+  var self = this
+
+  return new Promise(function (resolve, reject) {
+    debug(&#x27;Friends.userExists (%s)&#x27;, username)
+
+    self.client.post(constants.endpoints.friends.exists, {
+      &#x27;request_username&#x27;: username,
+      &#x27;username&#x27;: self.client.username
+    }, function (err, result) {
+      if (err) {
+        return reject(err)
+      } else if (result) {
+        return resolve(!!result.exists)
+      }
+
+      return reject(new Error(&#x27;Friends.userExists parse error&#x27;))
+    })
+  }).nodeify(cb)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
